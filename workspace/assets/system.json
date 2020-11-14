@@ -1,0 +1,29 @@
+{
+    "github_user" : "selfscrum",
+    "github_repo" : "boundary_net",
+    "tfc_organization" :"selfscrum",
+    "workspace" : "boundary_net",
+    "env_name" : "boundary", 
+    "env_stage" : "dev",
+    "location" : "nbg1",
+    "system_function" : "NETWORK",
+    "postgres_image" :"ubuntu-18.04",
+    "postgres_type" :"cx11",
+    "worker_image" :"ubuntu-18.04",
+    "worker_type" :"cx11",
+    "controller_image": "ubuntu-18.04",
+    "controller_type" :"cx11",
+    "router_type" :"cx11",
+    "lb_type" :"lb11",
+    "keyname" :"tfh_key",
+    "network_zone" :"eu-central",
+    "private_key" :"",
+    "router_password" :"",
+    "router_user" :"",
+    "router_commands" : [ 
+        "ip dhcp-client add interface ether2 use-peer-dns yes use-peer-ntp yes add-default-route yes disabled no", 
+        "interface set ether1 name if1-wan", 
+        "interface set ether2 name if2-lan", 
+        "ip firewall nat add chain=srcnat action=masquerade out-interface=if1-wan" 
+    ]
+}
