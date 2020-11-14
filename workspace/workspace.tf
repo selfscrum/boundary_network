@@ -1,20 +1,9 @@
 resource "tfe_workspace" "boundary_network" {
-  name  = format("%s_%s_%s", 
+  name  = format("%s_%s", 
                 lookup(locals.system, "stage"),
-                lookup(locals.system, "workspace"),
-                random_pet.name.id
+                lookup(locals.system, "workspace")
                 )
   organization = lookup(locals.system, "tfc_organization")
-
-  vcs_repo {
-    identifier = format("%s/%s",
-                lookup(locals.system, "github_user"),
-                lookup(locals.system, "github_repo")
-                )
-    oauth_token_id = var.github_oauth_token_id
-    ingress_submodules = true
-  }
-
   queue_all_runs = false
 }
 
