@@ -4,7 +4,7 @@ locals {
 
 resource "tfe_workspace" "boundary_network" {
   name  = format("%s_%s", 
-                local.system["stage"],
+                local.system["env_stage"],
                 local.system["workspace"]
                 )
   organization = local.system["tfc_organization"]
