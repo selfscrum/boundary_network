@@ -18,7 +18,7 @@ resource "tfe_workspace" "boundary_network" {
   queue_all_runs = false
 }
 
-resource "tfe_variable" "bn_env_name" {
+resource "tfe_variable" "bn_access_token" {
     key          = "access_token"
     value        = ""
     category     = "environment"
