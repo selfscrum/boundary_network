@@ -20,10 +20,5 @@
     "private_key" :"",
     "router_password" :"",
     "router_user" :"",
-    "router_commands" : [ 
-        "ip dhcp-client add interface ether2 use-peer-dns yes use-peer-ntp yes add-default-route yes disabled no", 
-        "interface set ether1 name if1-wan", 
-        "interface set ether2 name if2-lan", 
-        "ip firewall nat add chain=srcnat action=masquerade out-interface=if1-wan" 
-    ]
+    "router_commands" : "[ \"ip dhcp-client add interface ether2 use-peer-dns yes use-peer-ntp yes add-default-route yes disabled no\", \"interface set ether1 name if1-wan\", \"interface set ether2 name if2-lan\", \"ip firewall nat add chain=srcnat action=masquerade out-interface=if1-wan\" ]"
 }

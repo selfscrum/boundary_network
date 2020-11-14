@@ -14,7 +14,7 @@ resource "tfe_workspace" "boundary_network" {
 resource "tfe_variable" "bn_access_token" {
     key          = "access_token"
     value        = ""
-    category     = "environment"
+    category     = "env"
     workspace_id = tfe_workspace.boundary_network.id
     description  = "Workspace that created the Boundary Network"
     sensitive    = true
