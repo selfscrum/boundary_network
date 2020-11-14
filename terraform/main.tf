@@ -142,6 +142,8 @@ resource "hcloud_server" "postgres" {
   server_type = var.postgres_type
   location    = var.location
   labels      = {
+      "Name"     = var.env_name
+      "Stage"    = var.env_stage
       "POSTGRES" = 0
   }
   ssh_keys    = [ var.keyname ]
@@ -200,6 +202,8 @@ resource "hcloud_server" "worker" {
   server_type = var.worker_type
   location    = var.location
   labels      = {
+      "Name"     = var.env_name
+      "Stage"    = var.env_stage
       "WORKER" = 0
   }
   ssh_keys    = [ var.keyname ]
@@ -258,6 +262,8 @@ resource "hcloud_server" "controller" {
   server_type = var.controller_type
   location    = var.location
   labels      = {
+      "Name"     = var.env_name
+      "Stage"    = var.env_stage
       "CONTROLLER" = 0
   }
   ssh_keys    = [ var.keyname ]
