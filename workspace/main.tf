@@ -12,7 +12,3 @@ terraform {
 }
 
 resource "random_pet" "name" {}
-
-locals {
-  system = jsondecode(file("assets/system.json"))
-}

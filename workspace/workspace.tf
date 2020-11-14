@@ -1,3 +1,7 @@
+locals {
+  system = jsondecode(file("assets/system.json"))
+}
+
 resource "tfe_workspace" "boundary_network" {
   name  = format("%s_%s", 
                 lookup(locals.system, "stage"),
