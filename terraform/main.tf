@@ -35,6 +35,11 @@ resource "hcloud_network" "mynet" {
   ip_range = "10.0.0.0/16"
 }
 
+output "network_id" {
+  description = "Hetzner ID of the private network"
+  value = hcloud_network.mynet.id
+}
+
 resource "hcloud_network_subnet" "public" {
   network_id = hcloud_network.mynet.id
   type = "cloud"
@@ -47,6 +52,11 @@ resource "hcloud_network_subnet" "private" {
   type = "cloud"
   network_zone = "eu-central"
   ip_range   = "10.0.2.0/24"
+}
+
+output "private_subnet_id" {
+  description = "Hetzner ID of the private subnet"
+  value = hcloud_network_subnet.private.id
 }
 
 module "routeros-router" {
