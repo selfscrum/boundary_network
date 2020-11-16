@@ -92,7 +92,7 @@ resource "hcloud_network_route" "to_router" {
   gateway = hcloud_server_network.external_router.ip
 }
 
-
+/*
 ####
 # Load Balancer
 #
@@ -129,8 +129,9 @@ resource "hcloud_load_balancer_target" "load_balancer_target" {
   use_private_ip   = true
   depends_on = [ hcloud_load_balancer_network.frontnet, hcloud_server_network.external_controller ]  
 }
+*/
 
-
+/*
 ####
 # Backend Postgres
 #
@@ -309,3 +310,4 @@ resource "hcloud_server_network" "external_controller" {
 output "controller_ip" {
     value = hcloud_server.controller.ipv4_address
 }
+*/
