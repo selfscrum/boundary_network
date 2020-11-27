@@ -203,6 +203,16 @@ output "postgres_ip" {
 }
 */
 
+
+module "wireguard" {
+  source = "git::https://github.com/suquant/tf_wireguard.git"
+
+  count         = 1
+  connections   = [ hcloud_server.worker.ipv4_address, hcloud_server.controller.ipv4_address ]
+  private_ips   = [ "10.10.10.10/32", "10.10.10.11/32"]
+  overlay_cidr  = "10.10.10.0/24"
+}
+
 ###
 # Boundary Worker
 #
@@ -251,17 +261,19 @@ resource "hcloud_server" "worker" {
                 WORKER_EOF  
 }
 
+/*
 resource "hcloud_server_network" "external_worker" {
   network_id = hcloud_network.mynet.id
   server_id  = hcloud_server.worker.id
   ip = cidrhost(hcloud_network_subnet.public.ip_range, 3)
 }
 
+
 output "worker_ip" {
     value = hcloud_server.worker.ipv4_address
 }
+*/
 
-/*
 
 ###
 # Boundary Controller
@@ -312,7 +324,7 @@ resource "hcloud_server" "controller" {
                   - reboot
                 CONTROLLER_EOF  
 }
-
+/*
 resource "hcloud_server_network" "external_controller" {
   network_id = hcloud_network.mynet.id
   server_id  = hcloud_server.controller.id
