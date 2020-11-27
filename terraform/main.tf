@@ -204,14 +204,6 @@ output "postgres_ip" {
 */
 
 
-module "wireguard" {
-  source = "git::https://github.com/selfscrum/tf_wireguard.git"
-  amount         = 2
-  connections   = [ hcloud_server.worker.ipv4_address, hcloud_server.controller.ipv4_address ]
-  private_ips   = [ "10.10.10.10/32", "10.10.10.11/32"]
-  overlay_cidr  = "10.10.10.0/24"
-}
-
 ###
 # Boundary Worker
 #
