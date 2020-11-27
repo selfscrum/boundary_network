@@ -201,6 +201,7 @@ resource "hcloud_server_network" "internal_postgres" {
 output "postgres_ip" {
     value = hcloud_server.postgres.ipv4_address
 }
+*/
 
 ###
 # Boundary Worker
@@ -260,6 +261,7 @@ output "worker_ip" {
     value = hcloud_server.worker.ipv4_address
 }
 
+/*
 
 ###
 # Boundary Controller
